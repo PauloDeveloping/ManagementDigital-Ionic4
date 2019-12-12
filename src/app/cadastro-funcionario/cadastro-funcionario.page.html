@@ -1,0 +1,232 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Cadastro de funcionário
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <form [formGroup]="fGroup">
+      <ion-row>
+        <ion-col>
+          <ion-icon name="arrow-round-forward"></ion-icon><ion-label style="font-size: 18px;">&nbsp;&nbsp;Dados pessoais</ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-label style="font-size: 14px;">&nbsp;&nbsp;* Campos obrigatórios</ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <div class="text" *ngIf="fGroup.controls.nome.errors"><div *ngIf="fGroup.controls.nome.errors.required">*&nbsp;</div></div><ion-icon name="contact"></ion-icon>&nbsp;<ion-input type="text" placeholder="Nome" [(ngModel)]="cadastro.nome" formControlName="nome"></ion-input>
+          </ion-item>
+          <div *ngIf="fGroup.controls.nome.errors">
+            <div class="text" *ngIf="fGroup.controls.nome.errors.minlength" color="danger">Esse campo deve ter no mínimo 2 caracteres</div>
+            <div class="text" *ngIf="fGroup.controls.nome.errors.maxlength" color="danger">Esse campo deve ter no máximo 50 caracteres</div>
+          </div>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <div class="text" *ngIf="fGroup.controls.email.errors"><div *ngIf="fGroup.controls.email.errors.required">*&nbsp;</div></div><ion-icon name="mail"></ion-icon>&nbsp;<ion-input type="email" placeholder="Email" [(ngModel)]="cadastro.email" formControlName="email"></ion-input>
+          </ion-item>
+          <div *ngIf="fGroup.controls.email.errors">
+            <div class="text" *ngIf="fGroup.controls.email.errors.pattern" color="danger">Email formatado incorretamente</div>
+          </div>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-icon name="camera"></ion-icon>&nbsp;<ion-input type="text" placeholder="Foto" [(ngModel)]="cadastro.foto" [ngModelOptions]="{standalone: true}"></ion-input>
+          </ion-item>  
+        </ion-col>
+  
+        <ion-col>
+          <ion-item>
+            <div class="text" *ngIf="fGroup.controls.dataNasc.errors"><div *ngIf="fGroup.controls.dataNasc.errors.required">*&nbsp;</div></div><ion-icon name="calendar"></ion-icon>&nbsp;<ion-input type="date" placeholder="Data de nascimento" [(ngModel)]="cadastro.dataNasc" formControlName="dataNasc"></ion-input>
+          </ion-item>
+          <div *ngIf="fGroup.controls.dataNasc.errors">
+            <div class="text" *ngIf="fGroup.controls.dataNasc.errors.minlength" color="danger">Esse campo deve ter no mínimo 8 caracteres</div>
+            <div class="text" *ngIf="fGroup.controls.dataNasc.errors.maxlength" color="danger">Esse campo deve ter no máximo 8 caracteres</div>
+          </div>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <div class="text" *ngIf="fGroup.controls.rg.errors"><div *ngIf="fGroup.controls.rg.errors.required">*&nbsp;</div></div><ion-icon name="clipboard"></ion-icon>&nbsp;<ion-input type="text" placeholder="RG" [(ngModel)]="cadastro.rg" formControlName="rg" mask="00.000.000-0" maxlength="12"></ion-input>
+          </ion-item>
+          <div *ngIf="fGroup.controls.rg.errors">
+              <div class="text" *ngIf="fGroup.controls.rg.errors.minlength" color="danger">Esse campo deve ter 9 caracteres</div>
+            </div>
+        </ion-col>
+  
+        <ion-col>
+          <ion-item>
+            <div class="text" *ngIf="fGroup.controls.cpf.errors"><div *ngIf="fGroup.controls.cpf.errors.required">*&nbsp;</div></div><ion-icon name="folder"></ion-icon>&nbsp;<ion-input type="text" placeholder="CPF" [(ngModel)]="cadastro.cpf" formControlName="cpf" mask="000.000.000-00" maxlength="14"></ion-input>
+          </ion-item>
+          <div *ngIf="fGroup.controls.cpf.errors">
+              <div class="text" *ngIf="fGroup.controls.cpf.errors.minlength" color="danger">Esse campo deve ter 11 caracteres</div>
+            </div>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <div class="text" *ngIf="fGroup.controls.celular.errors"><div *ngIf="fGroup.controls.celular.errors.required">*&nbsp;</div></div><ion-icon name="phone-portrait"></ion-icon>&nbsp;<ion-input type="text" placeholder="Celular" [(ngModel)]="cadastro.celular" formControlName="celular" mask="(00) 00000-0000" maxlength="15"></ion-input>
+          </ion-item>
+          <div *ngIf="fGroup.controls.celular.errors">
+              <div class="text" *ngIf="fGroup.controls.celular.errors.minlength" color="danger">Esse campo deve ter 11 caracteres</div>
+            </div>
+        </ion-col>
+  
+        <ion-col>
+          <ion-item>
+            <div class="text" *ngIf="fGroup.controls.telefone.errors"><div *ngIf="fGroup.controls.telefone.errors.required">*&nbsp;</div></div><ion-icon name="call"></ion-icon>&nbsp;<ion-input type="text" placeholder="Telefone" [(ngModel)]="cadastro.telefone" formControlName="telefone" mask="(00) 0000-0000" maxlength="14"></ion-input>
+          </ion-item>
+          <div *ngIf="fGroup.controls.telefone.errors">
+              <div class="text" *ngIf="fGroup.controls.telefone.errors.minlength" color="danger">Esse campo deve ter 10 caracteres</div>
+            </div>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row>
+        <ion-col>
+          <ion-icon name="arrow-round-forward"></ion-icon><ion-label style="font-size: 18px;">&nbsp;&nbsp;Dados profissionais</ion-label>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <div class="text" *ngIf="fGroup.controls.cargo.errors"><div *ngIf="fGroup.controls.cargo.errors.required">*&nbsp;</div></div><ion-icon name="pricetag"></ion-icon>&nbsp;<ion-input type="text" placeholder="Cargo" [(ngModel)]="cadastro.cargo" formControlName="cargo"></ion-input>
+          </ion-item>
+          <div *ngIf="fGroup.controls.cargo.errors">
+              <div class="text" *ngIf="fGroup.controls.cargo.errors.minlength" color="danger">Esse campo deve ter no mínimo 2 caracteres</div>
+              <div class="text" *ngIf="fGroup.controls.cargo.errors.maxlength" color="danger">Esse campo deve ter no máximo 50 caracteres</div>
+            </div>
+        </ion-col>
+  
+        <ion-col>
+          <ion-item>
+            <div class="text" *ngIf="fGroup.controls.setor.errors"><div *ngIf="fGroup.controls.setor.errors.required">*&nbsp;</div></div><ion-icon name="briefcase"></ion-icon>&nbsp;<ion-input type="text" placeholder="Setor" [(ngModel)]="cadastro.setor" formControlName="setor"></ion-input>
+          </ion-item>
+          <div *ngIf="fGroup.controls.setor.errors">
+              <div class="text" *ngIf="fGroup.controls.setor.errors.minlength" color="danger">Esse campo deve ter no mínimo 2 caracteres</div>
+              <div class="text" *ngIf="fGroup.controls.setor.errors.maxlength" color="danger">Esse campo deve ter no máximo 50 caracteres</div>
+            </div>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <div class="text" *ngIf="fGroup.controls.salario.errors"><div *ngIf="fGroup.controls.salario.errors.required">*&nbsp;</div></div><ion-icon name="logo-euro"></ion-icon>&nbsp;<ion-input type="text" placeholder="Salário" [(ngModel)]="cadastro.salario" formControlName="salario"></ion-input>
+          </ion-item>
+          <div *ngIf="fGroup.controls.salario.errors">
+              <div class="text" *ngIf="fGroup.controls.salario.errors.minlength" color="danger">Esse campo deve ter no mínimo 2 caracteres</div>
+              <div class="text" *ngIf="fGroup.controls.salario.errors.maxlength" color="danger">Esse campo deve ter no máximo 50 caracteres</div>
+            </div>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row>
+        <ion-col>
+          <ion-icon name="arrow-round-forward"></ion-icon><ion-label style="font-size: 18px;">&nbsp;&nbsp;Dados de endereço</ion-label>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <div class="text" *ngIf="fGroup.controls.logradouro.errors"><div *ngIf="fGroup.controls.logradouro.errors.required">*&nbsp;</div></div><ion-icon name="map"></ion-icon>&nbsp;<ion-input type="text" placeholder="Logradouro" [(ngModel)]="cadastro.logradouro" formControlName="logradouro"></ion-input>
+          </ion-item>
+          <div *ngIf="fGroup.controls.logradouro.errors">
+              <div class="text" *ngIf="fGroup.controls.logradouro.errors.minlength" color="danger">Esse campo deve ter no mínimo 2 caracteres</div>
+              <div class="text" *ngIf="fGroup.controls.logradouro.errors.maxlength" color="danger">Esse campo deve ter no máximo 50 caracteres</div>
+            </div>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <div class="text" *ngIf="fGroup.controls.numero.errors"><div *ngIf="fGroup.controls.numero.errors.required">*&nbsp;</div></div><ion-icon name="list"></ion-icon>&nbsp;<ion-input type="text" placeholder="Número" [(ngModel)]="cadastro.numero" formControlName="numero"></ion-input>
+          </ion-item>
+          <div *ngIf="fGroup.controls.numero.errors">
+              <div class="text" *ngIf="fGroup.controls.numero.errors.minlength" color="danger">Esse campo deve ter no mínimo 1 caracteres</div>
+              <div class="text" *ngIf="fGroup.controls.numero.errors.maxlength" color="danger">Esse campo deve ter no máximo 10 caracteres</div>
+            </div>
+        </ion-col>
+  
+        <ion-col>
+          <ion-item>
+            <div class="text" *ngIf="fGroup.controls.complemento.errors"><div *ngIf="fGroup.controls.complemento.errors.required">*&nbsp;</div></div><ion-icon name="compass"></ion-icon>&nbsp;<ion-input type="text" placeholder="Complemento" [(ngModel)]="cadastro.complemento" formControlName="complemento"></ion-input>
+          </ion-item>
+          <div *ngIf="fGroup.controls.complemento.errors">
+              <div class="text" *ngIf="fGroup.controls.complemento.errors.minlength" color="danger">Esse campo deve ter no mínimo 2 caracteres</div>
+              <div class="text" *ngIf="fGroup.controls.complemento.errors.maxlength" color="danger">Esse campo deve ter no máximo 50 caracteres</div>
+            </div>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <div class="text" *ngIf="fGroup.controls.bairro.errors"><div *ngIf="fGroup.controls.bairro.errors.required">*&nbsp;</div></div><ion-icon name="navigate"></ion-icon>&nbsp;<ion-input type="text" placeholder="Bairro" [(ngModel)]="cadastro.bairro" formControlName="bairro"></ion-input>
+          </ion-item>
+          <div class="text" *ngIf="fGroup.controls.bairro.errors">
+              <div class="text" *ngIf="fGroup.controls.bairro.errors.minlength" color="danger">Esse campo deve ter no mínimo 2 caracteres</div>
+              <div class="text" *ngIf="fGroup.controls.bairro.errors.maxlength" color="danger">Esse campo deve ter no máximo 50 caracteres</div>
+            </div>
+        </ion-col>
+  
+        <ion-col>
+          <ion-item>
+            <div class="text" *ngIf="fGroup.controls.cidade.errors"><div *ngIf="fGroup.controls.cidade.errors.required">*&nbsp;</div></div><ion-icon name="pin"></ion-icon>&nbsp;<ion-input type="text" placeholder="Cidade" [(ngModel)]="cadastro.cidade" formControlName="cidade"></ion-input>
+          </ion-item>
+          <div *ngIf="fGroup.controls.cidade.errors">
+              <div class="text" *ngIf="fGroup.controls.cidade.errors.minlength" color="danger">Esse campo deve ter no mínimo 2 caracteres</div>
+              <div class="text" *ngIf="fGroup.controls.cidade.errors.maxlength" color="danger">Esse campo deve ter no máximo 50 caracteres</div>
+            </div>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <div class="text" *ngIf="fGroup.controls.estado.errors"><div *ngIf="fGroup.controls.estado.errors.required">*&nbsp;</div></div><ion-icon name="send"></ion-icon>&nbsp;<ion-input type="text" placeholder="Estado" [(ngModel)]="cadastro.estado" formControlName="estado"></ion-input>
+          </ion-item>
+          <div *ngIf="fGroup.controls.estado.errors">
+              <div class="text" *ngIf="fGroup.controls.estado.errors.minlength" color="danger">Esse campo deve ter no mínimo 2 caracteres</div>
+              <div class="text" *ngIf="fGroup.controls.estado.errors.maxlength" color="danger">Esse campo deve ter no máximo 2 caracteres</div>
+            </div>
+        </ion-col>
+      </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" (click)="cadastrarFuncionario()" color="secondary" expand="block" [disabled]="!fGroup.valid"><ion-icon name="checkmark"></ion-icon>&nbsp;Salvar</ion-button>
+      </ion-col>
+
+      <ion-col>
+        <ion-button (click)="logout()" color="danger" expand="block"><ion-icon name="exit"></ion-icon>&nbsp;Sair</ion-button>
+      </ion-col>
+    </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

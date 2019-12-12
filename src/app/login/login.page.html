@@ -1,0 +1,36 @@
+<ion-content class="login">
+    <ion-grid fixed>
+      <img src="./assets/img/logo.png" class="logo">
+      <ion-segment (ionChange)="segmentChanged($event)" value="login">
+        <ion-segment-button value="login">
+          <ion-label color="secondary">Login</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="cadastro">
+          <ion-label color="secondary">Cadastro</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+
+      <ion-row class="form">
+        <ion-col>
+          <ion-item>
+            <ion-icon name="mail"></ion-icon>&nbsp;<ion-input type="email" placeholder="Email" [(ngModel)]="userLogin.email"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-icon name="lock"></ion-icon>&nbsp;<ion-input type="password" placeholder="Senha" [(ngModel)]="userLogin.password"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" (click)="login()" color="secondary" expand="block"><ion-icon name="exit"></ion-icon>&nbsp;Entrar</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+  

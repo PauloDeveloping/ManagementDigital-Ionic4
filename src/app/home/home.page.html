@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Dashboard
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-card>
+        <ion-item>
+          <ion-icon name="add-circle" slot="start"></ion-icon>
+          <ion-label>Cadastrar</ion-label>
+          <ion-button fill="outline" slot="end" href="/cadastro-funcionario">Acessar</ion-button>
+        </ion-item>
+      
+        <ion-card-content>
+          Clique em acessar para cadastrar um novo funcionário
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-item>
+          <ion-icon name="contact" slot="start"></ion-icon>
+          <ion-label>Funcionários</ion-label>
+          <ion-button fill="outline" slot="end" href="/funcionarios">Acessar</ion-button>
+        </ion-item>
+      
+        <ion-card-content>
+          Clique em acessar para visualizar a lista de todos os funcionários cadastrados, e os altere assim como desejar.
+        </ion-card-content>
+      </ion-card>
+  </div>  
+</ion-content>
